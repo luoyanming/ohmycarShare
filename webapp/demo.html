@@ -1,0 +1,112 @@
+<!-- 重点参数：renderOptions -->
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <!-- 原始地址：//webapi.amap.com/ui/1.0/ui/misc/PathSimplifier/examples/index.html -->
+    <!-- <base href="//webapi.amap.com/ui/1.0/ui/misc/PathSimplifier/examples/" /> -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>轨迹展示&巡航</title>
+    <style>
+    html,
+    body,
+    #container {
+        width: 750px;
+        height: 540px;
+        margin: 0px;
+    }
+
+    .amap-e{
+        opacity: 0.8 !important;
+        background: #15162A !important;
+    }
+
+     .amap-logo {
+        display: none !important;
+    }
+        
+    .amap-copyright {
+        display: none !important;
+    }  
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script type="text/javascript" src='//webapi.amap.com/maps?v=1.3&key=2cf1a6a575aaf559b6919b329f89f7b4'></script>
+    <script src="//webapi.amap.com/ui/1.0/main.js"></script>
+    <script type="text/javascript">
+    //创建地图
+    var map = new AMap.Map('container', {
+        zoom: 4
+    });
+
+    AMapUI.load(['ui/misc/PathSimplifier', 'lib/$'], function(PathSimplifier, $) {
+
+        if (!PathSimplifier.supportCanvas) {
+            alert('当前环境不支持 Canvas！');
+            return;
+        }
+
+        var pathSimplifierIns = new PathSimplifier({
+            zIndex: 100,
+            //autoSetFitView:false,
+            clickToSelectPath: false,
+            eventSupportInvisible: false,
+            map: map, //所属的地图实例
+            getPath: function(pathData, pathIndex) {
+                return pathData.path;
+            },
+            renderOptions: {
+                eventSupport: false,
+                pathLineStyle: {
+                    strokeStyle: 'rgba(255, 255, 255, 0.01)',
+                    borderStyle: 'rgba(255, 255, 255, 0.01)'
+                }
+            }
+        });
+
+        window.pathSimplifierIns = pathSimplifierIns;
+
+        $.getJSON('../static/js/big-routes.json', function(d) {
+            pathSimplifierIns.setData(d);
+
+            function onload() {
+                pathSimplifierIns.renderLater();
+            }
+
+            function onerror(e) {
+                alert('图片加载失败！');
+            }
+
+            //创建一个巡航器
+            var navg1 = pathSimplifierIns.createPathNavigator(0, {
+                loop: false,
+                speed: 2000000,
+                pathNavigatorStyle: {
+                    width: 24,
+                    height: 24,
+                    //使用图片
+                    // content: PathSimplifier.Render.Canvas.getImageContent('../static/images/logo.png', onload, onerror),
+                    strokeStyle: null,
+                    fillStyle: null,
+                    //经过路径的样式
+                    pathLinePassedStyle: {
+                        lineWidth: 5,
+                        strokeStyle: 'rgba(242, 255, 0, 1)',
+                        dirArrowStyle: {
+                            stepSpace: 15,
+                            strokeStyle: null
+                        }
+                    }
+                }
+            });
+
+            navg1.start();
+        });
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,288 @@
+/* reset */
+*{
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    outline: 0;
+    font-weight: normal;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    border: none;
+    font: inherit;
+    vertical-align: baseline;
+    word-wrap:break-word;
+}
+
+ul,
+li,
+ol{
+    list-style: none;
+}
+
+
+a{
+    text-decoration: none;
+    tap-highlight-color: rgba(0,0,0,0);
+    focus-ring-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-focus-ring-color: rgba(0, 0, 0, 0);
+    -moz-tap-highlight-color: rgba(0,0,0,0);
+    -moz-focus-ring-color: rgba(0, 0, 0, 0);
+}
+
+img{
+    display: block; 
+}
+
+
+@media only screen and (min-width: 400px) {
+    html, body {
+        font-size: 21.33333333px !important;
+    }
+}
+@media only screen and (min-width: 414px) {
+    html, body {
+        font-size: 22.08px !important;
+    }
+}
+@media only screen and (min-width: 480px) {
+    html, body {
+        font-size: 25.6px !important;
+    }
+}
+
+html, body{
+    font-size: 20px !important;
+    background-color: #EFEFF4;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+
+/* flex */
+.flex-a,.flex-h,.flex-v,.flex-v-c{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex}
+.flex-h{-webkit-box-orient:horizontal;-ms-box-orient:horizontal;box-orient:horizontal;-webkit-box-direction:normal;-ms-box-direction:normal;box-direction:normal;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row}
+.flex-v{-webkit-box-orient:vertical;-ms-box-orient:vertical;box-orient:vertical;-webkit-box-direction:normal;-ms-box-direction:normal;box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column}
+.flex-a{-webkit-box-pack:justify;-moz-box-pack:justify;-ms-flex-pack:justify;-webkit-box-align:center;-moz-box-align:center;-ms-flex-align:center;-webkit-justify-content:space-between;justify-content:space-between;align-content:center}
+.flex-center{-webkit-box-pack:justify;-moz-box-pack:justify;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center}
+.flex-v-c{-ms-flex-align:center;-webkit-align-items:center;-webkit-box-align:center;align-items:center}
+.flex-a-i{-webkit-box-flex:1;-moz-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1}
+
+
+/* insurance */
+.insurance{}
+.insurance ul{}
+.insurance ul li{
+    padding-left: .75rem;
+    background: #FFFFFF;
+}
+.insurance ul li .item{
+    position: relative;
+    display: block;
+    padding: .75rem;
+    padding-left: 0;
+    border-top: 1px solid #EFEFF4;
+}
+.insurance ul li .item::after{
+    content: "";
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    margin-top: -.35rem;
+    right: .75rem;
+    width: .375rem;
+    height: .7rem;
+    background: url('../images/arrow.png') no-repeat center center;
+    background-size: 100% 100%;
+}
+.insurance ul li .item h1{
+    color: #2F313D;
+    font-size: .75rem;
+    line-height: 1.05rem;
+    font-weight: normal;
+}
+.insurance ul li .item h2{
+    margin-top: .15rem;
+    color: #8F8E94;
+    font-size: .6rem;
+    line-height: .825rem;
+    font-weight: normal;
+}
+
+/* share */
+.share{
+    position: relative;
+    height: 100%;
+    background: #fff;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.share .share-map{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 0;
+    padding-top: 72%;
+    background: #15162A;
+}
+.share .share-map .mask{
+    position: absolute;
+    z-index: 501;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.share .share-info{
+    position: relative;
+    z-index: 500;
+    padding-bottom: 4rem;
+}
+.share .share-info .thumb{
+    position: absolute;
+    z-index: 500;
+    top: -1.75rem;
+    left: 50%;
+    margin-left: -1.75rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    padding: .25rem;
+    border-radius: 50%;
+    background: #FFFFFF;
+    overflow: hidden;
+}
+.share .share-info .thumb img{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+}
+.share .share-info .date{
+    position: absolute;
+    z-index: 10;
+    top: .75rem;
+    left: .75rem;
+    font-size: .6rem;
+    color: #2F313D;
+    line-height: 1.6rem;
+    padding: 0 .625rem;
+    background: #EFEFF4;
+    border-radius: 2.5rem;
+}
+.share .share-info .nickname{
+    padding-top: 2rem;
+    font-size: .75rem;
+    color: #2F313D;
+    line-height: 1.05rem;
+    text-align: center;
+}
+.share .share-info .carname{
+    font-size: .6rem;
+    color: #8F8E94;
+    line-height: .85rem;
+    text-align: center;
+}
+.share .share-info .data{
+    width: 100%;
+    padding: 1.5rem 0;
+}
+.share .share-info .data h1{
+    font-size: 2.5rem;
+    color: #2F313D;
+    line-height: 3rem;
+    font-weight: bold;
+    text-align: center;
+}
+.share .share-info .data h1 span{
+    margin-left: .25rem;
+    font-size: .65rem;
+    color: #2F313D;
+    font-weight: bold;
+}
+.share .share-info .data h4{
+    font-size: .65rem;
+    color: #2F313D;
+    line-height: 1.25rem;
+    text-align: center;
+}
+
+
+
+/* download */
+.download{
+    position: absolute;
+    z-index: 600;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 4rem;
+    padding: .75rem 1rem;
+    background: #FFFFFF;
+    box-shadow: 0 0 .75rem 0 #EFEFF4;
+}
+.download .imgwrap{
+    width: 2.5rem;
+    height: 2.5rem;
+    overflow: hidden;
+}
+.download .imgwrap img{
+    width: 100%;
+    height: 100%;
+}
+.download .flex-a-i{
+    margin-left: .5rem;
+}
+.download .flex-a-i h1{
+    font-size: .75rem;
+    color: #2F313D;
+    line-height: 1.35rem;
+    font-weight: normal;
+}
+.download .flex-a-i h2{
+    font-size: .6rem;
+    color: #8F8E94;
+    line-height: .8rem;
+    font-weight: normal;
+}
+.download .link{}
+.download .link a{
+    display: block;
+    width: 4.25rem;
+    height: 1.75rem;
+    line-height: 1.75rem;
+    font-size: .65rem;
+    color: #FFFFFF;
+    text-align: center;
+    background-image: linear-gradient(90deg, #2DDA94 0%, #24E266 100%);
+    border-radius: 2.5rem;
+}
+
+
+
+/* map */
+#container {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.amap-e{
+    background: rgba(21, 22, 42, .8) !important;
+}
+
+ .amap-logo {
+    display: none !important;
+}
+    
+.amap-copyright {
+    display: none !important;
+}
+
+.amap-icon img{
+    width: 100%;
+    height: 100%;
+}
